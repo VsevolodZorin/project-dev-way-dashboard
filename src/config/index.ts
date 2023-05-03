@@ -4,7 +4,8 @@ export enum Envs {
 }
 
 export interface IApi {
-  baseUrl: string;
+  apiUrl: string;
+  authUrl: string;
 }
 
 export interface IConfig {
@@ -14,7 +15,8 @@ export interface IConfig {
 
 export const config: IConfig = {
   api: {
-    baseUrl: (process.env.apiBaseUrl as string) || 'http://localhost:4000',
+    apiUrl: process.env.apiBaseUrl as string,
+    authUrl: process.env.apiBaseUrl as string,
   },
   getEnv(): Envs {
     return process.env.NODE_ENV as Envs;
